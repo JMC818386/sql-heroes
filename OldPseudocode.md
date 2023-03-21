@@ -51,6 +51,20 @@ Interactive creation, update, delete of a hero in the terminal via python script
             ‘biography’
         );
 
+**Create Ability:**
+
+    INSERT INTO
+        abilities (hero_id, ability_type_id)
+    VALUES
+        (#, #);
+
+**Create Relationship:**
+
+    INSERT INTO
+        relationships (hero1_id, hero2_id, relationship_type_id)
+    VALUES
+        (#, #, #);
+
 #
 ### **READ:** Hero Profile
 - When reading hero profile…input queries heroes, abilities, relationships tables
