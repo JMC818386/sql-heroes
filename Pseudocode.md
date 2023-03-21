@@ -25,6 +25,8 @@ Interactive creation, update, delete of a hero in the terminal via python script
 ## **Python Functions**
 
     def create_new_hero()
+        SQL INSERT new hero
+         
 
     def read_hero_profile()
 
