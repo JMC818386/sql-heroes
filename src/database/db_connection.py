@@ -39,19 +39,19 @@ Documentation on this can be found at https://www.psycopg.org/psycopg3/docs/basi
 
 Examples:
 def select_all_patients():
-    query = """
-        #SELECT * from patients
-"""
+    query = 
+        SELECT * from patients
+
     returned_items = execute_query(query).fetchall
     for item in returned_items:
         print(item[1])
     return returned_items
 
  def create_new_patient(name, bio):
-    query = """
-        #INSERT INTO patients (name, bio)
-        #VALUES (%s, %s)
-"""
+    query = 
+        INSERT INTO patients (name, bio)
+        VALUES (%s, %s)
+
     execute_query(query, (name, bio))
     
 NOTE1: Tuples () with only one argument need to have a trailing comma. 
