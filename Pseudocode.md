@@ -26,14 +26,47 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
 
 
 ## **Python Functions**
+* 
+**Main Menu**
+
+    def load_start_menu()
+        #lists CRUD options
+
+    def input_start_menu()
+        #calls load_start_menu()
+
+*
+**Create New Hero**
 
     def create_new_hero()
+        #SQL command to create hero
+    
+    def input_hero_profile()
+        #input calls create_new_hero
+*
+**Read Hero Profile**
 
     def read_hero_profile()
+        #SQL command to query profile
+    
+    def input_hero_profile()
+        #input calls read_hero_profile
+*
+**Update Hero Ability**
 
-    def update_hero_relationship()
+    def update_hero_ability()
+        #SQL command to update ability
+    
+    def input_hero_ability()
+        #input calls update_hero_ability()
+*
+**Delete Hero**
 
     def delete_hero()
+        #SQL command to delete hero
+    
+    def input_delete_hero()
+        #input calls delete_hero()
 #
 ## **SQL Commands**
 
@@ -72,20 +105,22 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
             ON
 
 #
-### **UPDATE:** Ability
+### **UPDATE:** Hero Ability
 
-**Update Ability:**
+**Update Hero Ability:**
 
-    UPDATE
+    UPDATE abilities
     SET
     WHERE
+
+
 #
 ### **DELETE:** Hero
 
 **Delete Hero:**
 
-    DELETE FROM
-    WHERE
+    DELETE name FROM heroes
+    WHERE name LIKE ="Hero Name"
 
 # **PROCEDURE**
 ### **Procedure (create_new_hero)**
