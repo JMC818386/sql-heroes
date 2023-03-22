@@ -3,6 +3,7 @@ from database.db_connection import execute_query
 def get_all_heroes():
     query = """
         SELECT name FROM heroes
+ 
     """ 
 
     names = execute_query(query).fetchall()

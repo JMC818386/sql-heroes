@@ -1,6 +1,6 @@
 from database.db_connection import execute_query
 
-def get_all_heroes():
+def get_chill_woman_profile():
     query = """
         SELECT 
             name, 
@@ -14,9 +14,25 @@ def get_all_heroes():
     for count, value in enumerate(names):
         print(f"{count + 1} : {value[0]} : {value[1]} : {value[2]}")
 
+def get_the_seer_profile():
+    query = """
+        SELECT 
+            name, 
+            about_me, 
+            biography 
+        FROM heroes 
+        WHERE name LIKE 'The Seer'
+    """ 
+
+    names = execute_query(query).fetchall()
+    for count, value in enumerate(names):
+        print(f"{count + 1} : {value[0]} : {value[1]} : {value[2]}")
+
 def question_prompt():
     answer = input("Press Enter to see a list of heroes...")
-    if answer == "": 
-        print(get_all_heroes())
+    if answer == "1": 
+        print(get_chill_woman_profile())
+    elif answer == "2":
+        print(get_the_seer_profile())
 
 question_prompt()
