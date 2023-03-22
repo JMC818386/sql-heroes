@@ -1,2 +1,2 @@
-SELECT * FROM ability_types;
+SELECT name FROM heroes;
 
