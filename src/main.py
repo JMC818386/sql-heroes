@@ -96,12 +96,6 @@ def get_hero_profile(num):
         {value[2]}
         {value[3]}""")
 
-
-def input_hero_profile():
-    answer = input("Type the number next to the hero you want to see...")
-    if answer == "": 
-        get_hero_profiles()
-
 #-------------------------------------UPDATE HERO NAME------------------------------------------#
 def input_update_name():
     get_all_heroes()
