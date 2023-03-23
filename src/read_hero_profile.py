@@ -1,38 +1,46 @@
 from database.db_connection import execute_query
 
-def get_chill_woman_profile():
+
+def get_all_heroes():
     query = """
-        SELECT 
-            name, 
-            about_me, 
-            biography 
-        FROM heroes 
-        WHERE name LIKE 'Chill Woman'
+        SELECT name FROM heroes
+ 
     """ 
 
     names = execute_query(query).fetchall()
     for count, value in enumerate(names):
-        print(f"{count + 1} : {value[0]} : {value[1]} : {value[2]}")
+        print(f"{count + 1}: {value[0]}")
 
-def get_the_seer_profile():
-    query = """
-        SELECT 
-            name, 
-            about_me, 
-            biography 
-        FROM heroes 
-        WHERE name LIKE 'The Seer'
+
+def input_get_heroes():
+    get_all_heroes()
+    hero_number = input("Type the number next to the hero you want to see...")
+    get_hero_profile(hero_number)
+
+def get_hero_profile(num):
+    query = f"""
+        SELECT
+            id,
+            name,
+            about_me,
+            biography
+        FROM heroes
+        WHERE heroes.id = {num};
     """ 
 
     names = execute_query(query).fetchall()
     for count, value in enumerate(names):
-        print(f"{count + 1} : {value[0]} : {value[1]} : {value[2]}")
+        print(f"""
+        {value[0]}: {value[1]}
+        {value[2]}
+        {value[3]}""")
+
 
 def input_hero_profile():
-    answer = input("Press Enter to see a list of heroes...")
-    if answer == "1": 
-        print(get_chill_woman_profile())
-    elif answer == "2":
-        print(get_the_seer_profile())
+    answer = input("Type the number next to the hero you want to see...")
+    if answer == "": 
+        get_hero_profiles()
 
-input_hero_profile()
+
+input_get_heroes()
+
