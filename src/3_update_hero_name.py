@@ -8,20 +8,20 @@ def get_all_heroes():
     for count, value in enumerate(names):
         print(f"{value[0]}: {value[1]}")
 
-def input_delete_hero():
+def input_update_name():
     get_all_heroes()
-    num = input("Type the number next to the hero you want to delete...")
-    delete_hero(num)
+    number = input("Enter the number next to the hero you want to update: ")
+    name = input("Enter the hero's new name: ")
+    update_hero_name(name, number)
 
-def delete_hero(num):
-    get_all_heroes()
+def update_hero_name(name, number):
     query = f"""
-        DELETE FROM heroes 
-        WHERE id = '{num}'
+        UPDATE heroes
+        SET name = '{name}'
+        WHERE id = {number}
     """
     execute_query(query)
     get_all_heroes()
-    return_to_main_menu()
 
-
-input_delete_hero()
+input_update_name()
+    
