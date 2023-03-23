@@ -1,5 +1,32 @@
 from database.db_connection import execute_query
 
+
+#------------------------------------------------------------------------------------------#
+# This function gets all names in a numbered list from heroes table
+#------------------------------------------------------------------------------------------#
+
+def get_all_heroes():
+    query = """
+        SELECT name FROM heroes
+ 
+    """ 
+
+    names = execute_query(query).fetchall()
+    for count, value in enumerate(names):
+        print(f"{count + 1}: {value[0]}")
+
+def question_prompt():
+    answer = input("Press Enter to see a list of heroes...")
+    if answer == "": 
+        print(get_all_heroes())
+
+question_prompt()
+
+#------------------------------------------------------------------------------------------#
+# In these two functions I was attempting to get name, about_me and biography from an individual
+# hero by creating a function for each hero, then using if/elif in an input function to call
+# each function based on it's assigned list number
+#------------------------------------------------------------------------------------------#
 def get_chill_woman_profile():
     query = """
         SELECT 
