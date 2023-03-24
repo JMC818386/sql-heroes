@@ -113,7 +113,7 @@ def update_hero_name(name, number):
     get_all_heroes()
     return_to_main_menu()
 
-#-------------------------------------UPDATE HERO NAME------------------------------------------#
+#-------------------------------------DELETE HERO------------------------------------------#
 
 def input_delete_hero():
     get_all_heroes()
