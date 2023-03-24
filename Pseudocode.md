@@ -24,57 +24,13 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
 
 - Interactive creation, update, delete of a hero in the terminal via python script, with commands that are available for the README.md.
 
-
-## **Python Functions**
-* 
-**Main Menu**
-
-    def load_start_menu()
-        #lists CRUD options
-
-    def input_start_menu()
-        #calls load_start_menu()
-
-*
-**Create New Hero**
-
-    def create_new_hero()
-        #SQL command to create hero
-    
-    def input_hero_profile()
-        #input calls create_new_hero
-*
-**Read Hero Profile**
-
-    def read_hero_profile()
-        #SQL command to query profile
-    
-    def input_hero_profile()
-        #input calls read_hero_profile
-*
-**Update Hero Ability**
-
-    def update_hero_ability()
-        #SQL command to update ability
-    
-    def input_hero_ability()
-        #input calls update_hero_ability()
-*
-**Delete Hero**
-
-    def delete_hero()
-        #SQL command to delete hero
-    
-    def input_delete_hero()
-        #input calls delete_hero()
 #
 ## **SQL Commands**
 
 ### **CREATE:** New hero
-- When creating a new hero… input should be added to heroes, abilities and relationships tables
-- One function that holds 3 INSERT’s (create…heroes, abilities, relationships)
+- When creating a new hero… input should be added to heroes table
 - Terminal input calls function
-- Function prints confirmation message
+- Function prints confirmation message (updated list)
 
 **Create Hero:**
 
@@ -89,8 +45,6 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
 
 #
 ### **READ:** Hero Profile
-- When reading hero profile…input queries heroes, abilities, relationships tables
-- One function that holds 3 SELECT’s (query…heroes, abilities, relationships)
 
 **Read Hero Profile:**
 
@@ -99,17 +53,13 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
         about_me,
         biography
     FROM heroes
-        JOIN 
-            ON
-        JOIN
-            ON
 
 #
-### **UPDATE:** Hero Ability
+### **UPDATE:** Hero Name
 
-**Update Hero Ability:**
+**Update Hero Name:**
 
-    UPDATE abilities
+    UPDATE
     SET
     WHERE
 
@@ -120,10 +70,61 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
 **Delete Hero:**
 
     DELETE name FROM heroes
-    WHERE name LIKE ="Hero Name"
+    WHERE
 
+#
+## **Python Functions**
+
+**Main Menu**
+
+    def input_start_menu()
+        #calls load_start_menu()
+
+    def load_start_menu()
+        #lists CRUD options
+
+
+
+
+**Create New Hero**
+
+    def input_hero_profile()
+        #input calls create_new_hero
+
+    def create_new_hero()
+        #SQL command to create hero
+    
+
+**Read Hero Profile**
+
+    def input_hero_profile()
+        #input calls read_hero_profile
+
+    def read_hero_profile()
+        #SQL command to query profile
+    
+
+**Update Hero Name**
+
+    def input_hero_name()
+        #input calls update_hero_name()
+
+    def update_hero_name()
+        #SQL command to update name
+    
+
+**Delete Hero**
+
+    def input_delete_hero()
+        #input calls delete_hero()
+
+    def delete_hero()
+        #SQL command to delete hero
+
+
+#
 # **PROCEDURE**
-### **Procedure (create_new_hero)**
+### **(create_new_hero)**
 
     DISPLAY
         “Press Enter to Begin…”
@@ -175,7 +176,7 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
         “Press Enter to Return to Main Menu”
 
 #        
-### **Procedure (read_hero_profile)**
+### **(read_hero_profile)**
 
     DISPLAY
         “Press Enter to Begin…”
@@ -219,7 +220,7 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
 
     DISPLAY main menu
 
-### **Procedure (update_hero_ability)**
+### **(update_hero_name)**
 
     DISPLAY
         “Press Enter to Begin…”
@@ -229,7 +230,7 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
     DISPLAY
     1. Create New Hero
     2. Get Hero Profile
-    3. Update Hero Ability
+    3. Update Hero Name
     4. Delete Hero
 
         “Choose a Selection…”
@@ -245,34 +246,28 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
         4. The Hummingbird
         5. Mental Mary
 
-        “Which Hero’s would you like add a new ability to?”
+        “Which hero's name would you like to change?”
         “(Type Number then Press Enter)”
 
     INPUT
         User enters 1
     
     DISPLAY
-        1. Super Strength
-        2. Flying
-        3. Telekinesis
-        4. The Telepathy
-        5. Frost Breath
-        6. Super Speed
-        7. Super Vision
-
-        Chill Woman's current abilities: Frost Breath
-        “Which ability would you like to give Chill Woman?”
-        “(Type Number then Press Enter)”
+            "What is your hero's new name?"
 
     INPUT
-        User enters 1
+        User enters "New Name"
 
     DISPLAY
-        "Chill Woman now has Frost Breath and Super Strength."
+        1. New Name
+        2. The Seer
+        3. McMuscles
+        4. The Hummingbird
+        5. Mental Mary
 
         “Press Enter to Return to Main Menu”
 
-### **Procedure (delete_hero)**
+### **(delete_hero)**
 
     DISPLAY
         “Press Enter to Begin…”
@@ -317,10 +312,8 @@ App should perform CRUD operations on the supplied SQL Database file and prompt 
 #  
 # **heroes**
 ![image](img/Heroes_Table.png)
-#
 # **ability_types**
 ![image](img/Ability_Types.png)
-#
 # **abilities**
 ![image](img/Abilities_Table.png)
 # **relationship_types**

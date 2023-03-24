@@ -1,5 +1,14 @@
 from database.db_connection import execute_query
 
+#----------------------------------RETURN TO MAIN MENU PROMPT----------------------------------#
+
+def return_to_main_menu():
+    answer = input("Press ENTER to return to the main menu.")
+    if answer == "": 
+        print(load_start_menu())
+
+#----------------------------------------------------------------------------------------------#
+
 
 #------------------------------------------------------------------------------------------#
 # This function gets all names in a numbered list from heroes table
