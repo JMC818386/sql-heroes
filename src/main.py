@@ -181,6 +181,9 @@ def update_hero_name(name, number):
         WHERE id = {number}
     """
     execute_query(query)
+    print(f"""
+    YOU'VE JUST UPDATED THIS HERO'S NAME TO {name}!
+    """)
     get_all_heroes()
     return_to_update_name()
 
