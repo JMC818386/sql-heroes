@@ -1,8 +1,11 @@
 from database.db_connection import execute_query
+import os
 
+os.system('clear')
 #-------------------------------------------ONLOAD INITIATE PROGRAM------------------------------------------#
 
 def begin_game():
+    os.system('clear')
     answer = input("Press ENTER begin")
     if answer == "": 
         load_start_menu()
@@ -10,6 +13,7 @@ def begin_game():
 #----------------------------------------------MAIN MENU------------------------------------------#
 
 def load_start_menu():
+    os.system('clear')
     print("""
          _______.  ______      __          __    __   _______ .______        ______    _______     _______.
         /       | /  __  \    |  |        |  |  |  | |   ____||   _  \      /  __  \  |   ____|   /       |
@@ -31,7 +35,8 @@ def load_start_menu():
 
 
 def input_main_menu():
-    answer = input("Enter the number next your selection and press ENTER!")
+    answer = input("""
+    Enter the number next your selection and press ENTER!""")
     if answer == "1": 
         input_create_hero()
     elif answer == "2":
@@ -55,8 +60,7 @@ def get_all_heroes():
 
 
 #-------------------------------------CREATE NEW HERO------------------------------------------#
-
-def input_create_hero():
+def new_hero_ascii():
     print("""
     
 .__   __.  ___________    __    ____     __    __   _______ .______        ______   
@@ -68,9 +72,15 @@ def input_create_hero():
 
 
     """)
-    name = input("Enter your new hero's name: ")
-    about = input("Enter one sentence to describe your new hero: ")
-    biography = input("Enter a few sentences about your hero's back story: ")
+def input_create_hero():
+    os.system('clear')
+    new_hero_ascii()
+    name = input("""
+    Enter your new hero's name: """)
+    about = input("""
+    Enter one sentence to describe your new hero: """)
+    biography = input("""
+    Enter a few sentences about your hero's back story: """)
     create_new_hero(name, about, biography)
 
 def create_new_hero(name, about, biography):
@@ -79,16 +89,19 @@ def create_new_hero(name, about, biography):
         VALUES (%s, %s, %s)
     """
     execute_query(query, (name, about, biography))
+    os.system('clear')
+    new_hero_ascii()
+    get_all_heroes()
     print(f"""
     YOU JUST CREATED A NEW HERO NAMED {name}!
     """)
-    get_all_heroes()
     return_to_create_hero()
 
 #----------------------------------RETURN TO CREATE HERO PROMPT----------------------------------#
 
 def return_to_create_hero():
-    answer = input("Would you like to to create another hero? (Y/N).")
+    answer = input("""
+    Would you like to to create another hero? (Y/N): """)
     if answer == "Y": 
         input_create_hero()
     elif answer == "N":
@@ -100,8 +113,7 @@ def return_to_create_hero():
 
 
 #-------------------------------------READ HERO PROFILE------------------------------------------#
-
-def input_get_heroes():
+def profile_ascii():
     print("""
 
 .______   .______        ______    _______  __   __       _______     _______.
@@ -113,8 +125,13 @@ def input_get_heroes():
                                                                               
 
     """)
+
+def input_get_heroes():
+    os.system('clear')
+    profile_ascii()
     get_all_heroes()
-    hero_number = input("Type the number next to the hero you want to see...")
+    hero_number = input("""
+    Type the number next to the hero you want to see: """)
     get_hero_profile(hero_number)
 
 def get_hero_profile(num):
@@ -129,6 +146,8 @@ def get_hero_profile(num):
     """ 
 
     names = execute_query(query).fetchall()
+    os.system('clear')
+    profile_ascii()
     for count, value in enumerate(names):
         print(f"""
 Name:
@@ -146,7 +165,8 @@ Bio:
 #----------------------------------RETURN TO READ PROFILE PROMPT----------------------------------#
 
 def return_to_read_profile():
-    answer = input("Would you like to to read another heroes profile? (Y/N).")
+    answer = input("""
+    Would you like to to read another heroes profile? (Y/N): """)
     if answer == "Y": 
         input_get_heroes()
     elif answer == "N":
@@ -157,7 +177,7 @@ def return_to_read_profile():
 #----------------------------------------------------------------------------------------------#
 
 #-------------------------------------UPDATE HERO NAME------------------------------------------#
-def input_update_name():
+def update_ascii():
     print("""
 
  __    __  .______    _______       ___   .___________. _______ 
@@ -169,28 +189,38 @@ def input_update_name():
                                                                 
 
     """)
+
+def input_update_name():
+    os.system('clear')
+    update_ascii()
     get_all_heroes()
-    number = input("Enter the number next to the hero you want to update: ")
-    name = input("Enter the hero's new name: ")
+    number = input("""
+    Enter the number next to the hero you want to update: """)
+    name = input("""
+    Enter the hero's new name: """)
     update_hero_name(name, number)
 
 def update_hero_name(name, number):
+    os.system('clear')
     query = f"""
         UPDATE heroes
         SET name = '{name}'
         WHERE id = {number}
     """
     execute_query(query)
+    os.system('clear')
+    update_ascii()
+    get_all_heroes()
     print(f"""
     YOU'VE JUST UPDATED THIS HERO'S NAME TO {name}!
     """)
-    get_all_heroes()
     return_to_update_name()
 
 #----------------------------------RETURN TO UPDATE NAME PROMPT----------------------------------#
 
 def return_to_update_name():
-    answer = input("Would you like to update another hero's name? (Y/N).")
+    answer = input("""
+    Would you like to update another hero's name? (Y/N): """)
     if answer == "Y": 
         input_update_name()
     elif answer == "N":
@@ -202,8 +232,7 @@ def return_to_update_name():
 #----------------------------------------------------------------------------------------------#
 
 #-------------------------------------DELETE HERO------------------------------------------#
-
-def input_delete_hero():
+def delete_ascii():
     print("""
 
  _______   _______  __       _______ .___________. _______ 
@@ -215,24 +244,34 @@ def input_delete_hero():
                                                            
                                                      
     """)
+
+def input_delete_hero():
+    os.system('clear')
+    delete_ascii()
     get_all_heroes()
-    num = input("Type the number next to the hero you want to delete...")
+    num = input("""
+    Type the number next to the hero you want to delete...""")
     delete_hero(num)
 
 def delete_hero(num):
+    os.system('clear')
+    delete_ascii()
     get_all_heroes()
     query = f"""
         DELETE FROM heroes 
         WHERE id = '{num}'
     """
     execute_query(query)
+    os.system('clear')
+    delete_ascii()
     get_all_heroes()
     return_to_delete_hero()
 
 #----------------------------------RETURN TO DELETE HERO PROMPT----------------------------------#
 
 def return_to_delete_hero():
-    answer = input("Would you like to delete another hero? (Y/N).")
+    answer = input("""
+    Would you like to delete another hero? (Y/N): """)
     if answer == "Y": 
         input_delete_hero()
     elif answer == "N":
